@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  tbtc-minting-alertoor:
+    image: tbtc-minting-alertoor
+    build: .
+    environment:
+      WEB3_PROVIDER:
+      EXPLORER:
+      TG_BOT_KEY:
+      TG_CHAT_ID:
+      FROM_BLOCK:
+    restart: on-failure
