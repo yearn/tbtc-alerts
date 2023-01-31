@@ -51,7 +51,10 @@ def main():
               raise ValueError(f"Found event with name: {e.name}")
 
             _send_message(bot, e.name, txn_hash, block, tbtc_amount, eth_balance, funding_txn_hash)
-        sleep(5)
+
+        # wait for the next block
+        while(from_block == chain.height):
+            sleep(5)
         from_block = chain.height
 
 def _send_message(bot, event_name, txn_hash, block, tbtc_amount, eth_balance, funding_txn_hash = None):
